@@ -18,3 +18,21 @@
     display: flex;
     justify-content: center;
 }
+.high {
+    background-color: red;
+    padding: 10px;
+    border-radius: 10%;
+    color: white;
+}
+.medium {
+    background-color: yellow;
+    padding: 10px;
+    border-radius: 10%;
+    color: black;
+}
+.low {
+    background-color:green;
+    padding: 10px;
+    border-radius: 10%;
+    color: white;
+}

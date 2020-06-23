@@ -1,5 +1,4 @@
 //put info pulled from weather app API into specific locations on page
-    //need to finish UV index 
     //need to add icon next to city 
 //create ordered list with local storage for searched cities 
 var currentDate = moment().format("MMM Do YYYY"); 
@@ -20,13 +19,32 @@ $.ajax({
     method: "GET"
   }).then(function(response) {
       console.log(response)
+      var latitude = response.coord.lat;
+      var longitude = response.coord.lon;
     var cityImg = $("<img>");
     cityImg.attr("src", "https://openweathermap.org/img/wn/" + response.weather[0].icon + ".png");
     $("#city").append(" " + response.name + " " + currentDate + " " + cityImg);
     $("#temp").append(Math.floor(" " + response.main.temp));
     $("#humidity").append(" " + response.main.humidity + "%");
     $("#wind").append(" " + response.wind.speed + " MPH");
-
+    var uvIndex = "http://api.openweathermap.org/data/2.5/uvi?appid=119090b7f3bb3a2c44906450f645dd9a&" + "lat=" + latitude + "&lon=" + longitude ;
+       //Ajax call to set UV index with colored span div 
+    $.ajax({
+        url: uvIndex,
+        method: "GET"
+      }).then(function(uvResponse) {
+        //   console.log(uvResponse)
+          var uvText = $("<span>");
+          uvText.text(uvResponse.value);
+          $("#uv").append(uvText);
+          if (uvResponse.value > 9) {
+          uvText.attr("class", "high")
+          } else if (uvResponse.value < 4) {
+            uvText.attr("class", "low")
+        } else {
+            uvText.attr("class", "medium")
+        }
+      })
   })
   $.ajax({
     url: fiveDayForecast,
