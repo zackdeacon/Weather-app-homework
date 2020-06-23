@@ -1,0 +1,20 @@
+.header {
+    font-style: italic;
+    background-color: aquamarine;
+    text-align: center;
+}
+.col-4 {
+    border: 1px solid black;
+    margin-right: 10px;
+}
+.col-7 {
+    border: 1px solid black;
+}
+.daycast {
+    border: 1px solid black;
+    margin: 5px;
+}
+.forecastTitle {
+    display: flex;
+    justify-content: center;
+}
