@@ -36,3 +36,6 @@
     border-radius: 10%;
     color: white;
 }
+#searchResults {
+    list-style: none;
+}
