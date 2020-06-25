@@ -8,11 +8,13 @@ $("#searchBtn").on("click", function(event) {
     event.preventDefault();
    
     var city= $("#citySearch").val().trim();
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" +
+    console.log(city);
+    
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
       city + "&units=imperial&APPID=119090b7f3bb3a2c44906450f645dd9a";
-    var fiveDayForecast = "http://api.openweathermap.org/data/2.5/forecast?q=" +
-    city + "&units=imperial&APPID=119090b7f3bb3a2c44906450f645dd9a"
-
+    var fiveDayForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    city + "&units=imperial&APPID=119090b7f3bb3a2c44906450f645dd9a";
+ 
     if (!searchHistory.includes(city)) {
         searchHistory.unshift(city);
        
@@ -36,7 +38,7 @@ $.ajax({
     $("#temp").empty().append(" " + Math.floor(response.main.temp) + " F");
     $("#humidity").empty().append(" " + response.main.humidity + "%");
     $("#wind").empty().append(" " + response.wind.speed + " MPH");
-    var uvIndex = "http://api.openweathermap.org/data/2.5/uvi?appid=119090b7f3bb3a2c44906450f645dd9a&" + "lat=" + latitude + "&lon=" + longitude ;
+    var uvIndex = "https://api.openweathermap.org/data/2.5/uvi?appid=119090b7f3bb3a2c44906450f645dd9a&" + "lat=" + latitude + "&lon=" + longitude ;
        //Ajax call to set UV index with colored span div 
     $.ajax({
         url: uvIndex,
@@ -94,10 +96,10 @@ function createButtons () {
         newBtn.on("click", function(){
             
             var city= $(this).text();
-            var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" +
+            var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
               city + "&units=imperial&APPID=119090b7f3bb3a2c44906450f645dd9a";
-            var fiveDayForecast = "http://api.openweathermap.org/data/2.5/forecast?q=" +
-            city + "&units=imperial&APPID=119090b7f3bb3a2c44906450f645dd9a"
+            var fiveDayForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" +
+            city + "&units=imperial&APPID=119090b7f3bb3a2c44906450f645dd9a";
             
             console.log(city);
         $.ajax({
@@ -114,7 +116,7 @@ function createButtons () {
             $("#temp").empty().append(" " + Math.floor(response.main.temp) + " F");
             $("#humidity").empty().append(" " + response.main.humidity + "%");
             $("#wind").empty().append(" " + response.wind.speed + " MPH");
-            var uvIndex = "http://api.openweathermap.org/data/2.5/uvi?appid=119090b7f3bb3a2c44906450f645dd9a&" + "lat=" + latitude + "&lon=" + longitude ;
+            var uvIndex = "https://api.openweathermap.org/data/2.5/uvi?appid=119090b7f3bb3a2c44906450f645dd9a&" + "lat=" + latitude + "&lon=" + longitude ;
                //Ajax call to set UV index with colored span div 
             $.ajax({
                 url: uvIndex,
