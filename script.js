@@ -87,7 +87,9 @@ function createButtons () {
     $("#searchResult").empty();
     for (var i = 0; i < searchHistory.length; i++) {
         var newLi = $("<li>");
+        newLi.attr("class", "list-group-item");
         var newBtn = $("<button>");
+        newBtn.attr("class", "list-group-item list-group-item-action");
         newBtn.text(searchHistory[i]);
         newBtn.on("click", function(){
             
