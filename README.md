@@ -8,5 +8,6 @@ I have created an app that will allow a user to search for the weather related i
 
 This app calls on data from a weather API. 
 
-image
+![](weather%20dashboard.jpeg)
+
 
