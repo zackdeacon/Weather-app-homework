@@ -4,7 +4,7 @@ var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 // var storedCities = JSON.parse(localStorage.getItem("searchHistory"));
 
 createButtons();
-$("#searchBtn").on("click", function(event) {
+$("#searchBtn").on("click", function(event){
     event.preventDefault();
    
     var city= $("#citySearch").val().trim();
